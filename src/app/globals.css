@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body {
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Ensure your components are not causing overflow */
+  nav {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+/* تخصيص حجم شريط التمرير */
+::-webkit-scrollbar {
+    width: 14px;  /* عرض الشريط العمودي */
+    height: 8px; /* ارتفاع الشريط الأفقي */
+  }
+  
+  /* تخصيص لون الخلفية للشريط */
+  ::-webkit-scrollbar-track {
+    background: transparent; /* لون الخلفية */
+  }
+  
+  /* تخصيص لون المقبض (الجزء القابل للتمرير) */
+  ::-webkit-scrollbar-thumb {
+    background: #b4001e; /* لون المقبض */
+  }
+  
+  /* تأثير عند تحريك المؤشر فوق المقبض */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #ff4d4d; /* لون المقبض عند التحويم */
+  }
+  
