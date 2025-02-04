@@ -15,12 +15,12 @@ const poppins = Poppins({
 
 export default function Hero({ className }: HeroProps) {
   return (
-    <div className={`relative ${poppins.className} `}>
+    <div id='home' className={`relative ${poppins.className} `}>
       {/* Header Component */}
-      <Header className="fixed w-full top-0 left-0 z-50" />
+      <Header  className="fixed w-full top-0 left-0 z-50" />
 
       {/* Hero Section with space on left and right */}
-      <div className={`${className} min-h-screen px-16 space-x-36 justify-evenly gap-16 items-center bg-[url('/images/Cover.svg')] bg-cover bg-center bg-no-repeat relative`}>
+      <div className={`${className} min-h-screen px-16 space-x-36 flex justify-evenly gap-16 items-center bg-[url('/images/Cover.svg')] bg-cover bg-center bg-no-repeat relative`}>
         <div className='text-white relative'>
           <h1 className='sm:text-9xl text-7xl font-semibold tracking-tighter relative'>
             <span className="absolute -left-7 top-6 w-4 h-4 bg-primary-red rounded-full"></span>
