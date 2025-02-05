@@ -42,9 +42,9 @@ export default function Home() {
       <Contact className="h-screen snap-start flex justify-center" />
       </section>
       {/* Footer Section */}
-      <section id="footer">
+      {/* <section id="footer">
       <Footer className="h-screen snap-start flex justify-center" />
-      </section>
+      </section> */}
     </main>
   );
 }
