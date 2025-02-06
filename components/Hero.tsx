@@ -1,8 +1,8 @@
 import React from 'react'
-import Header from './Header'; // Adjust the import path based on your structure
 import Image from 'next/image';
 import { AiOutlinePlus } from "react-icons/ai";
 import { Poppins } from 'next/font/google';
+import Nav from './Nav';
 
 interface HeroProps {
   className?: string;
@@ -17,10 +17,10 @@ export default function Hero({ className }: HeroProps) {
   return (
     <div id='home' className={`relative ${poppins.className} `}>
       {/* Header Component */}
-      <Header  className="fixed w-full top-0 left-0 z-50" />
+      <Nav  className='fixed w-full top-0 left-0 z-50'/>
 
       {/* Hero Section with space on left and right */}
-      <div className={`${className} min-h-screen px-16 space-x-36 flex justify-evenly gap-16 items-center bg-[url('/images/Cover.svg')] bg-cover bg-center bg-no-repeat relative`}>
+      <div className={`${className} min-h-screen px-16 space-x-36 flex justify-evenly gap-16 items-center `}>
         <div className='text-white relative'>
           <h1 className='sm:text-9xl text-7xl font-semibold tracking-tighter relative'>
             <span className="absolute -left-7 top-6 w-4 h-4 bg-primary-red rounded-full"></span>

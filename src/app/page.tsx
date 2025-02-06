@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Header from "../../components/Header";
 import Aboutus from "../../components/Aboutus";
 import Schedule from "../../components/Schedule";
 import Tickets from "../../components/Tickets";
@@ -14,11 +13,11 @@ export default function Home() {
   return (
     <main className="snap-y snap-mandatory scroll-smooth overflow-y-scroll scroll-hidden h-screen  pd:px-8">
       {/* Hero Section */}
-      <section id="#Hero">
-      <Hero className="h-screen snap-start flex justify-center" />
+      <section id="#Hero" className="bg-[url('/images/Cover.svg')] bg-cover bg-center bg-no-repeat relative">
+      <Hero className="h-screen  snap-start flex justify-center" />
       </section>
       {/* About Us Section */}
-      <section id="aboutus">
+      <section id="aboutus" className="bg-[url('/images/Cover1.svg')] bg-cover bg-center bg-no-repeat relative">
       <Aboutus className="h-screen snap-start flex justify-center" />
       </section>
       {/* Speakers Section */}
