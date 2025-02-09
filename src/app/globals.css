@@ -31,6 +31,6 @@ html, body {
   
   /* تأثير عند تحريك المؤشر فوق المقبض */
   ::-webkit-scrollbar-thumb:hover {
-    background: #ff4d4d; /* لون المقبض عند التحويم */
+    background: #ea0027; /* لون المقبض عند التحويم */
   }
   

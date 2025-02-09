@@ -20,10 +20,10 @@ export default function Hero({ className }: HeroProps) {
       <Nav  className='fixed w-full top-0 left-0 z-50'/>
 
       {/* Hero Section with space on left and right */}
-      <div className={`${className} min-h-screen px-16 space-x-36 flex justify-evenly gap-16 items-center `}>
+      <div className={`${className} min-h-screen px-16 overflow-hidden space-x-36 flex justify-evenly gap-16 items-center `}>
         <div className='text-white relative'>
           <h1 className='sm:text-9xl text-7xl font-semibold tracking-tighter relative'>
-            <span className="absolute -left-7 top-6 w-4 h-4 bg-primary-red rounded-full"></span>
+            <span className="absolute -left-7 top-6 w-4 h-4 bg-primary-red rounded-full "></span>
             TEDx
             <br />
             Dabouq
@@ -38,11 +38,11 @@ export default function Hero({ className }: HeroProps) {
 
           <div className="flex flex-col gap-y-6 pt-10">
             <div className="flex items-center">
-              <AiOutlinePlus  className="text-primary-red font-thin w-6 h-6 ml-2" />
+              <AiOutlinePlus  className="text-primary-red font-thin w-6 h-6 " />
               <hr className="w-1/2 border-t-2 border-white ml-auto" />
             </div>
             <div className="flex justify-center">
-              <button className="relative top-16 lg:top-32 uppercase text-black bg-white rounded-lg px-16 py-2">
+              <button className="relative top-16 lg:top-32 uppercase text-black bg-white rounded-lg px-16 py-3">
                 Learn more
               </button>
             </div>
@@ -50,13 +50,13 @@ export default function Hero({ className }: HeroProps) {
         </div>
 
         {/* Microphone Image at the bottom center */}
-        <div className="absolute bottom-0 hidden xl:flex left-[550px] transform -translate-x-1/2">
+        <div className="absolute -bottom-4 hidden xl:flex left-[570px] transform -translate-x-1/2">
           <Image
-            src="/images/Microphone.svg"
+            src="/images/Microphone.png"
             alt="microphone"
-            width={3000}  // You can adjust the width to make it bigger or smaller
-            height={3000} // Adjust the height accordingly
-            className="object-cover h-[700px]"
+            width={600}  // You can adjust the width to make it bigger or smaller
+            height={600} // Adjust the height accordingly
+            className="object-cover h-full"
           />
         </div>
       </div>
