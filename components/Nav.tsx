@@ -25,7 +25,7 @@ export default function Nav({ className }: NavProps) {
   };
 
   return (
-    <nav className={`${className} flex justify-around items-center h-[60px]`}>
+    <nav className={`${className} flex justify-around items-center h-[60px] mt-3`}>
       {/* Logo Tedx */}
       <div>
         <a href="#home">
@@ -40,7 +40,7 @@ export default function Nav({ className }: NavProps) {
       </div>
 
       {/* Desktop Navigation Links */}
-      <div className="lg:flex  justify-center hidden gap-[60px] mt-8">
+      <div className="lg:flex  justify-center items-center font-semibold hidden gap-[60px]">
         <a
           href="#home"
           className={`${poppins.className} text-white hover:text-primary-red uppercase py-2`}
