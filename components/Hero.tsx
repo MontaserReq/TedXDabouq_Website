@@ -16,12 +16,12 @@ const poppins = Poppins({
 export default function Hero({ className }: HeroProps) {
   return (
     <div
-      id="home"
-      className={`relative ${poppins.className} flex justify-center items-center w-full max-w-2xl`}
-    >
+    id="home"
+    className={`relative ${poppins.className} flex justify-center items-center max-sm:max-w-sm max-md:max-w-md max-lg:max-w-lg max-xl:max-w-xl max-2xl:max-w-2xl`}
+  >
       <Nav className="fixed w-full top-0 left-0 z-50" />
       <div
-        className={`${className} min-h-screen w-full flex flex-col md:flex-row md:items-center md:justify-center gap-4 max-sm:px-8`}
+        className={`${className} min-h-screen w-full flex flex-col md:flex-row md:items-center md:justify-center gap-4 max-md:px-8`}
       >
         <div className="flex max-sm:flex-col sm:gap-4 md:justify-between w-full">
           <div className="text-white relative gap-2 flex flex-col md:gap-4">
