@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import React, { useState, useEffect } from "react";
 import Footer from "./Footer";
 
@@ -39,44 +39,51 @@ export default function Tickets({ className }: TicketsProps) {
     return () => clearInterval(interval);
   }, []);
 
+  // Helper function to ensure two digits
+  const formatTime = (time: number) => (time < 10 ? `0${time}` : time);
+
   return (
     <div
       id="tickets"
-      className={`${className} container mx-auto px-4 min-h-screen text-white flex flex-col gap-20 -space-y-6 items-center justify-center`}
+      className={`${className} container mx-auto px-4 min-h-screen text-white flex flex-col gap-10 sm:gap-16 md:gap-20 -space-y-6 items-center justify-center`}
     >
-      {/* المؤقت */}
-      <div className="flex ">
-        <span className="bg-secondary-red p-10 text-3xl font-bold">
-          {timeLeft.days}
+      <div className="flex flex-nowrap justify-center gap-2 sm:gap-4 md:gap-6 lg:gap-8 xl:gap-10">
+        <span className="bg-secondary-red p-2 sm:p-4 md:p-6 text-2xl sm:text-3xl md:text-4xl font-bold">
+          {formatTime(timeLeft.days)}
         </span>
         <span className="items-center flex font-bold justify-center text-2xl m-2">
           :
         </span>
-        <span className="bg-secondary-red text-3xl font-bold p-10">
-          {timeLeft.hours}
+        <span className="bg-secondary-red text-2xl sm:text-3xl md:text-4xl font-bold p-2 sm:p-4 md:p-6">
+          {formatTime(timeLeft.hours)}
         </span>
         <span className="items-center flex font-bold justify-center text-2xl m-2">
           :
         </span>
-        <span className="bg-secondary-red text-3xl font-bold p-10">
-          {timeLeft.minutes}
+        <span className="bg-secondary-red text-2xl sm:text-3xl md:text-4xl font-bold p-2 sm:p-4 md:p-6">
+          {formatTime(timeLeft.minutes)}
         </span>
         <span className="items-center flex font-bold justify-center text-2xl m-2">
           :
         </span>
-        <span className="bg-secondary-red text-2xl font-bold p-10">
-          {timeLeft.seconds}
+        <span className="bg-secondary-red text-2xl sm:text-3xl md:text-4xl font-bold p-2 sm:p-4 md:p-6">
+          {formatTime(timeLeft.seconds)}
         </span>
       </div>
-      <div className="">
-        <h1 className="text-4xl font-bold">Only 20 Tickets left</h1>
+
+      <div className="text-center mt-4 sm:mt-6 md:mt-8">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold">
+          Only a Few Tickets Left !
+        </h1>
       </div>
-      <div className="">
-        <button className="bg-secondary-red text-3xl font-bold p-6 border-b-4 border-black">
+
+      <div className="mt-6 sm:mt-8 md:mt-10">
+        <button className="bg-secondary-red text-xl sm:text-2xl font-bold p-6 sm:p-8 md:p-10 border-b-4 border-black hover:bg-secondary-red/85 transition duration-300">
           Get your ticket now
         </button>
       </div>
-      <hr className="text-3xl text-white"/>
+
+      <hr className="text-3xl text-white mt-10" />
       <Footer className="absolute bottom-0" />
     </div>
   );

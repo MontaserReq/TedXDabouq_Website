@@ -17,17 +17,17 @@ export default function Hero({ className }: HeroProps) {
   return (
     <div
       id="home"
-      className={`relative ${poppins.className} flex justify-center items-center w-full max-w-7xl px-4 md:px-8 lg:px-16`}
+      className={`relative ${poppins.className} flex justify-center items-center w-full max-w-7xl px-8 md:px-8 lg:px-16`}
     >
       <Nav className="fixed w-full top-0 left-0 z-50" />
 
       <div
         className={`min-h-screen w-full flex flex-col md:flex-row md:items-center md:justify-center gap-4 ${className}`}
       >
-        <div className="flex flex-col sm:flex-row sm:gap-4 md:gap-5 lg:gap-6 xl:gap-7 2xl:gap-8 md:justify-between w-full max-sm:max-w-sm">
+        <div className="flex flex-col sm:flex-row sm:gap-4 md:gap-5 lg:gap-6 xl:gap-7 2xl:gap-8 md:justify-between w-full max-sm:max-w-[320px]">
           <div className="text-white relative flex flex-col gap-2 md:gap-4">
             <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl font-semibold tracking-tighter relative">
-              <span className="absolute -left-4 top-2 w-2 h-2 xl:w-4 xl:h-4 xl:-left-5 xl:top-4 bg-primary-red rounded-full animate-pulse"></span>
+              <span className="absolute -left-4 top-2 w-2 h-2 xl:w-4 xl:h-4 xl:-left-5 xl:top-4 bg-primary-red rounded-full animate-pulse" />
               TEDx
               <br />
               Dabouq
@@ -36,7 +36,6 @@ export default function Hero({ className }: HeroProps) {
               Ideas Worth Spreading in Dabouq
             </p>
           </div>
-
           <div className="text-white relative">
             <div className="h-full flex flex-col justify-evenly">
               <h1 className="text-sm md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl tracking-tighter">
