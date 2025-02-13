@@ -56,13 +56,13 @@ export default function Hero({ className }: HeroProps) {
           </div>
         </div>
 
-        <div className="absolute -bottom-4 hidden xl:flex left-1/2 transform -translate-x-1/2">
+        <div className="absolute bottom-0 xl:flex left-1/2 transform -translate-x-1/2">
           <Image
             src="/images/Microphone.png"
             alt="microphone"
             width={600}
             height={600}
-            className="object-cover h-full"
+            className="object-cover z-40 h-72 max-sm:w-auto"
           />
         </div>
       </div>

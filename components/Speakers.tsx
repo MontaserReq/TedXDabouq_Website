@@ -31,8 +31,10 @@ export default function Speakers({ className }: SpeakersProps) {
   const updateVisibleSpeakers = () => {
     if (window.innerWidth < 640) {
       setNumVisibleSpeakers(1);
-    } else if (window.innerWidth < 1024) {
+    } else if (window.innerWidth < 850) {
       setNumVisibleSpeakers(2);
+    } else if (window.innerWidth < 1105) {
+      setNumVisibleSpeakers(3);
     } else {
       setNumVisibleSpeakers(4);
     }
@@ -46,6 +48,7 @@ export default function Speakers({ className }: SpeakersProps) {
       window.removeEventListener("resize", updateVisibleSpeakers);
     };
   }, []);
+
   const visibleSpeakers = speakersList.slice(
     startIndex,
     startIndex + numVisibleSpeakers
@@ -80,22 +83,24 @@ export default function Speakers({ className }: SpeakersProps) {
           <button
             onClick={handlePrev}
             disabled={startIndex === 0}
-            className="absolute left-4 p-3  rounded-full hover:bg-zinc-900 transition-all duration-300 ease-in-out hover:scale-150 disabled:opacity-50 z-50"
+            className="absolute left-4 p-3 rounded-full hover:bg-zinc-900 transition-all duration-500 ease-in-out hover:scale-105 disabled:opacity-50 z-50"
           >
             <ChevronLeft className="text-white w-8 h-8" />
           </button>
 
-          <div className="flex justify-center w-full gap-10 sm:gap-6 md:gap-10 lg:gap-16">
+          <div className="flex justify-center w-full gap-10 sm:gap-6 md:gap-10">
             {visibleSpeakers.map((speaker) => (
               <div key={speaker.id} className="flex flex-col items-center">
-                <div className=" flex items-end justify-center">
+                <div className="flex items-end justify-center">
                   <Image
                     src={speaker.image}
                     alt={speaker.name}
-                    className="w-56 object-cover rounded-lg transition-all duration-300 ease-in-out grayscale hover:grayscale-0 hover:scale-110 hover:-translate-y-[5%]"
+                    className="w-56 h-80 object-cover rounded-lg transition-all duration-300 ease-in-out grayscale hover:cursor-pointer hover:scale-110 hover:-translate-y-[5%]"
+                    width={224}
+                    height={290}
                   />
                 </div>
-                <hr className="w-[200%] max-sm:w-[100%] border-2 mb-4" />
+                <hr className="w-[130%] border-2 mb-4" />
                 <div className="text-xl font-semibold mt-4">{speaker.name}</div>
               </div>
             ))}
@@ -104,7 +109,7 @@ export default function Speakers({ className }: SpeakersProps) {
           <button
             onClick={handleNext}
             disabled={startIndex + numVisibleSpeakers >= speakersList.length}
-            className="absolute right-4 p-3 rounded-full hover:bg-zinc-900 transition-all duration-300 ease-in-out hover:scale-150 disabled:opacity-50 z-50"
+            className="absolute right-4 p-3 rounded-full hover:bg-zinc-900 transition-all duration-300 ease-in-out hover:scale-110 disabled:opacity-50 z-50"
           >
             <ChevronRight className="text-white w-8 h-8" />
           </button>
