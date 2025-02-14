@@ -26,7 +26,6 @@ export default function Nav({ className }: NavProps) {
 
   return (
     <nav className={`${className} flex justify-around items-center h-[60px] mt-3`}>
-      {/* Logo Tedx */}
       <div>
         <a href="#home">
           <Image
@@ -39,13 +38,18 @@ export default function Nav({ className }: NavProps) {
         </a>
       </div>
 
-      {/* Desktop Navigation Links */}
       <div className="lg:flex  justify-center items-center font-semibold hidden gap-[60px]">
         <a
           href="#home"
           className={`${poppins.className} text-white hover:text-primary-red uppercase py-2`}
         >
           Home
+        </a>
+        <a
+          href="#ted"
+          className={`${poppins.className} text-white hover:text-primary-red uppercase py-2`}
+        >
+          TedX
         </a>
         <a
           href="#aboutus"
@@ -79,7 +83,6 @@ export default function Nav({ className }: NavProps) {
         </a>
       </div>
 
-      {/* Burger icon for mobile view */}
       <div
         className="lg:hidden w-12 h-12 text-4xl cursor-pointer font-bold text-secondary-red flex items-center justify-center"
         onClick={toggleMenu}
@@ -105,6 +108,13 @@ export default function Nav({ className }: NavProps) {
                 className="font-semibold text-4xl py-3 text-white hover:text-primary-red text-center"
               >
                 Home
+              </a>
+              <a
+                href="#ted"
+                onClick={closeMenu}
+                className="text-white font-semibold hover:text-primary-red text-4xl py-3 text-center"
+              >
+                TedX
               </a>
               <a
                 href="#aboutus"

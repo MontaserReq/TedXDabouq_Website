@@ -12,7 +12,7 @@ function Sponsors({ className = '' }: SponsorsProps) {
   return (
     <div id='sponsors' className={` ${poppins.className}  `}>
           <div className={`${className}  mx-auto min-h-screen px-16 space-x-36 flex justify-evenly gap-16 items-center text-white text-xl `}>
-          Sponsors
+          
           </div>
         </div>
 

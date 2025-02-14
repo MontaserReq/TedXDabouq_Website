@@ -6,7 +6,11 @@ const config = {
     './src/**/*.{ts,tsx}',
   ],
   theme: {
-    extend: {
+    extend: { 
+      screens: {
+       'min-lg': '1100px',
+        'min-xl': '1250px',
+      },
       colors: {
         "primary-red": "#ea0027", // Custom primary color (blue-800)
         "secondary-red": "#b4001e", // Custom secondary color (orange)
@@ -25,6 +29,7 @@ const config = {
         'Bebas Neue',
         'cursive'
       ],
+      
     },
   },
   plugins: [],
