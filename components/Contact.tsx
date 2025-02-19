@@ -25,20 +25,20 @@ export default function Contact({ className = "" }: ContactProps) {
           <br />
           WITH <span className="text-secondary-red"  style={{ WebkitTextStroke: "0px white" }}>TEDx</span>DABOUQ
         </h1>
-        <div className="relative w-[100%] h-full flex justify-between items-end mt-8 max-w-5xl overflow-hidden">
+        <div className="relative w-full h-full flex justify-between items-end mt-8 ">
           <Image
             src="/images/Ken.png"
-            alt="Ken"
-            width={300}
-            height={300}
-            className="grayscale hidden lg:block w-[50%] absolute z-20 h-auto object-cover"
-          />
-          <Image
-            src="/images/Rich2.svg"
             alt="Richard"
             width={300}
             height={300}
-            className="hidden md:block absolute -right-0 grayscale w-[70%] h-auto object-cover"
+            className="hidden lg:block lg:-right-0  xl:-right-14 2xl:-right-40  absolute Z-30 -right-32  grayscale w-[48%] h-auto object-cover"
+          />
+          <Image
+            src="/images/Rich2.svg"
+            alt="Ken"
+            width={300}
+            height={300}
+            className="grayscale hidden lg:block  lg:-left-20 xl:-left-36 2xl:-left-52  scale-x-[-1] w-[50%] absolute -left-56 z-20 h-auto object-cover"
           />
         </div>
       </div>

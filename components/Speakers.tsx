@@ -97,7 +97,7 @@ export default function Speakers({ className }: SpeakersProps) {
                     <Image
                       src={speaker.image}
                       alt={speaker.name}
-                      className="w-56 h-80 hover:grayscale-0 object-cover rounded-lg transition-all duration-300 ease-in-out grayscale hover:cursor-pointer hover:scale-110 hover:-translate-y-[5%]"
+                      className="w-56 h-80  object-cover rounded-lg transition-all  hover:grayscale-0 duration-300 ease-in-out grayscale hover:cursor-pointer hover:scale-110 hover:-translate-y-[5%]"
                       width={224}
                       height={290}
                     />

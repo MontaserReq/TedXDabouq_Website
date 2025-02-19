@@ -27,7 +27,7 @@ function Ted({ className = "" }: AboutusProps) {
           </h1>
         </div>
         <div className="w-full h-[50%] ">
-
+          
         </div>
       </div>
     </div>
