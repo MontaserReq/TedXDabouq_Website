@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Poppins, Bebas_Neue } from "next/font/google";
+import { SessionProvider } from "next-auth/react";
 import "./globals.css";
+import { auth } from "@/lib/auth";
+import { Toaster } from "sonner";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -19,18 +22,22 @@ export const metadata: Metadata = {
   description: "TEDx Dabouq 2025",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const session = await auth();
   return (
-    <html lang="en">
-      <body
-        className={`${poppins.variable} ${bebasNeue.variable} antialiased bg-primary-gray`}
-      >
-        {children}
-      </body>
-    </html>
+    <SessionProvider session={session}>
+      <html lang="en">
+        <body
+          className={`${poppins.variable} ${bebasNeue.variable} antialiased bg-primary-gray`}
+        >
+          <Toaster richColors position="top-center" />
+          {children}
+        </body>
+      </html>
+    </SessionProvider>
   );
 }

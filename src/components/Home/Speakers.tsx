@@ -1,11 +1,9 @@
 "use client";
-
 import React, { useState, useEffect } from "react";
-import Speaker1 from "../public/images/Omar.png";
-import Speaker2 from "../public/images/Img1.png";
-import Speaker3 from "../public/images/Img2.png";
-import Speaker4 from "../public/images/Img3.png";
-
+import Speaker1 from "../../../public/images/Omar.png";
+import Speaker2 from "../../../public/images/Img1.png";
+import Speaker3 from "../../../public/images/Img2.png";
+import Speaker4 from "../../../public/images/Img3.png";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
@@ -59,8 +57,9 @@ export default function Speakers({ className }: SpeakersProps) {
     return () => clearInterval(interval);
   }, []);
 
-  const visibleSpeakers = Array.from({ length: numVisibleSpeakers }, (_, i) => 
-    speakersList[(startIndex + i) % speakersList.length]
+  const visibleSpeakers = Array.from(
+    { length: numVisibleSpeakers },
+    (_, i) => speakersList[(startIndex + i) % speakersList.length]
   );
 
   const handleNext = () => {
@@ -68,11 +67,16 @@ export default function Speakers({ className }: SpeakersProps) {
   };
 
   const handlePrev = () => {
-    setStartIndex((prevIndex) => (prevIndex - 1 + speakersList.length) % speakersList.length);
+    setStartIndex(
+      (prevIndex) => (prevIndex - 1 + speakersList.length) % speakersList.length
+    );
   };
 
   return (
-    <div id="speakers" className={`${className} min-h-screen text-white flex items-center justify-center relative`}>
+    <div
+      id="speakers"
+      className={`${className} min-h-screen text-white flex items-center justify-center relative`}
+    >
       <div className="w-full flex flex-col gap-12 items-center justify-center relative">
         <div className="container flex items-center w-full max-sm:px-6 mt-16 sm:mt-0">
           <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl font-semibold tracking-tighter relative">
@@ -103,7 +107,9 @@ export default function Speakers({ className }: SpeakersProps) {
                     />
                   </div>
                   <hr className="w-[130%] border-2 mb-4" />
-                  <div className="text-xl font-semibold mt-4">{speaker.name}</div>
+                  <div className="text-xl font-semibold mt-4">
+                    {speaker.name}
+                  </div>
                 </div>
               ))}
             </div>
