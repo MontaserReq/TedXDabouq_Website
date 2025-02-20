@@ -10,7 +10,7 @@ export default function Footer({ className }: FooterProps) {
       className={`${className} w-full text-white py-6 flex flex-col font-bold items-center justify-center px-6`}
     >
       
-      <p className="text-md">© 2025 TEDxDabouq. All rights reserved.</p>
+      <p className="text-md max-sm:text-center">© 2025 TEDxDabouq. All rights reserved.</p>
       <p className="text-md max-sm:text-center">
         Designed and Developed by{" "}
         <Link

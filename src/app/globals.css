@@ -34,4 +34,19 @@ html, body {
   ::-webkit-scrollbar-thumb:hover {
     background: #ea0027; /* لون المقبض عند التحويم */
   }
+  .text-glow-p {
+    text-shadow: 0 0 5px rgba(0, 0, 255, 0.7), 0 0 10px rgba(255, 255, 255, 0.5);
+  }
   
+    .text-glow-y {
+      text-shadow: 0 0 5px rgba(255, 255, 0, 0.7), 0 0 10px rgba(255, 255, 255, 0.5);
+    }
+
+  
+.text-glow-s {
+  text-shadow: 0 0 5px rgba(192, 192, 192, 0.7), 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.text-glow-b {
+  text-shadow: 0 0 5px rgba(205, 127, 50, 0.7), 0 0 10px rgba(255, 255, 255, 0.5);
+}

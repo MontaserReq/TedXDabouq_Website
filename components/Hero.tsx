@@ -19,7 +19,7 @@ export default function Hero({ className }: HeroProps) {
       id="home"
       className={`relative ${poppins.className} flex justify-center items-center w-full max-w-7xl px-8 md:px-8 lg:px-16`}
     >
-      <Nav className="fixed w-full top-0 left-0 z-50 " />
+      <Nav className="fixed w-full top-3 left-0 z-50 " />
 
       <div
         className={`min-h-screen w-full flex flex-col md:flex-row md:items-center md:justify-center  gap-4 ${className}`}
