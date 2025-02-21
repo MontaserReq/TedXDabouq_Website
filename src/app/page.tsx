@@ -35,16 +35,16 @@ export default function Home() {
         <Speakers className="h-screen w-full snap-start flex justify-center items-center" />
       </section>
       <section
-        id="contact"
-        className="w-full flex justify-center items-center  bg-[url('../../public/images/Cover.svg')] bg-cover bg-[30%] bg-no-repeat "
-      >
-        <Contact className="h-screen w-full snap-start flex justify-center items-center " />
-      </section>
-      <section
         id="sponsors"
         className="w-full flex justify-center items-center bg-[url('../../public/images/Cover1.svg')] bg-cover bg-[20%] bg-no-repeat"
       >
         <Sponsors className="h-screen w-full snap-start flex justify-center items-center " />
+      </section>
+      <section
+        id="contact"
+        className="w-full flex justify-center items-center  bg-[url('../../public/images/Cover.svg')] bg-cover bg-[30%] bg-no-repeat "
+      >
+        <Contact className="h-screen w-full snap-start flex justify-center items-center " />
       </section>
       <section
         id="tickets"

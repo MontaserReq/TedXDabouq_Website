@@ -34,21 +34,21 @@ function Aboutus({ className = "" }: AboutusProps) {
         </div>
         <div className="w-full relative">
           <Image
-            src="/images/Img1-Ted.jpg"
+            src="/images/Img1-Ted.png"
             alt="Ted Speaker"
             width={150}
             height={232}
             className="aspect-[1/1] max-w-[200px] w-full hidden absolute lg:block ml-2 top-0 -translate-y-52 left-0 min-xl:left-14 xl:left-14 2xl:left-28 grayscale transition-all  hover:grayscale-0 duration-300 ease-in-out  hover:cursor-pointer hover:scale-105"
           />
           <Image
-            src="/images/Img3-Ted.jpg"
+            src="/images/Img3-Ted.png"
             alt="Ted Speaker"
             width={150}
             height={232}
             className="aspect-[1/1] max-w-[200px] w-full hidden absolute lg:block ml-2 -translate-y-52 right-0 min-xl:right-14 xl:right-14 2xl:right-28  grayscale   hover:grayscale-0 duration-300 ease-in-out  hover:cursor-pointer hover:scale-105"
           />
           <Image
-            src="/images/Img2-Ted.jpg"
+            src="/images/Img2-Ted.png"
             alt="Ted Speaker"
             width={150}
             height={232}

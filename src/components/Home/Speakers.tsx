@@ -29,6 +29,7 @@ const speakersList = [
 export default function Speakers({ className }: SpeakersProps) {
   const [startIndex, setStartIndex] = useState(0);
   const [numVisibleSpeakers, setNumVisibleSpeakers] = useState(1);
+  const [isHovered, setIsHovered] = useState(false);
 
   const updateVisibleSpeakers = () => {
     if (window.innerWidth < 640) {
@@ -51,11 +52,14 @@ export default function Speakers({ className }: SpeakersProps) {
   }, []);
 
   useEffect(() => {
+    if (isHovered) return;
+
     const interval = setInterval(() => {
       setStartIndex((prevIndex) => (prevIndex + 1) % speakersList.length);
     }, 3000);
+
     return () => clearInterval(interval);
-  }, []);
+  }, [isHovered]);
 
   const visibleSpeakers = Array.from(
     { length: numVisibleSpeakers },
@@ -89,19 +93,24 @@ export default function Speakers({ className }: SpeakersProps) {
           <div className="relative w-full flex items-center justify-center">
             <button
               onClick={handlePrev}
-              className="absolute left-2 sm:left-4 lg:left-16  xl:left-16  min-lg:left-0 2xl:left-52 p-3 rounded-full hover:bg-zinc-900 transition-all duration-300 ease-in-out hover:scale-110 z-50"
+              className="absolute left-2 sm:left-4 lg:left-16 xl:left-16 min-lg:left-0 2xl:left-52 p-3 rounded-full hover:bg-zinc-900 transition-all duration-300 ease-in-out hover:scale-110 z-50"
             >
               <ChevronLeft className="text-white w-8 h-8" />
             </button>
 
             <div className="flex justify-center w-full gap-10 sm:gap-6 md:gap-10 relative">
-              {visibleSpeakers.map((speaker, index) => (
-                <div key={speaker.id} className="flex flex-col items-center">
+              {visibleSpeakers.map((speaker) => (
+                <div
+                  key={speaker.id}
+                  className="flex flex-col items-center"
+                  onMouseEnter={() => setIsHovered(true)}
+                  onMouseLeave={() => setIsHovered(false)}
+                >
                   <div className="flex items-end justify-center">
                     <Image
                       src={speaker.image}
                       alt={speaker.name}
-                      className="w-56 h-80  object-cover rounded-lg transition-all  hover:grayscale-0 duration-300 ease-in-out grayscale hover:cursor-pointer hover:scale-110 hover:-translate-y-[5%]"
+                      className="w-56 h-80 object-cover rounded-lg transition-all hover:grayscale-0 duration-300 ease-in-out grayscale hover:cursor-pointer hover:scale-110 hover:-translate-y-[5%]"
                       width={224}
                       height={290}
                     />
@@ -116,13 +125,11 @@ export default function Speakers({ className }: SpeakersProps) {
 
             <button
               onClick={handleNext}
-              className="absolute right-2 sm:right-4 lg:right-16  xl:right-16  min-lg:right-0 2xl:right-52 p-3 rounded-full hover:bg-zinc-900 transition-all duration-300 ease-in-out hover:scale-110 z-50"
+              className="absolute right-2 sm:right-4 lg:right-16 xl:right-16 min-lg:right-0 2xl:right-52 p-3 rounded-full hover:bg-zinc-900 transition-all duration-300 ease-in-out hover:scale-110 z-50"
             >
               <ChevronRight className="text-white w-8 h-8" />
             </button>
           </div>
-
-          {/* Counter Display */}
           <div className="mt-6 text-lg font-semibold text-gray-300">
             {startIndex + 1} / {speakersList.length}
           </div>
