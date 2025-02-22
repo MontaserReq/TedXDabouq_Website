@@ -16,7 +16,7 @@ const Sponsors = async () => {
               key={sponsor.id}
               className="mb-4 flex items-center justify-start gap-4"
             >
-              <div className="w-12 h-12 rounded-full mr-4">
+              <div className="w-12 h-12 rounded-full mr-4 flex items-center">
                 <ImgKT src={sponsor.Imgpath} alt={sponsor.Name} />
               </div>
               <div className="flex items-center justify-start gap-10 w-fit">
