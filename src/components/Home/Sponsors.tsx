@@ -15,7 +15,7 @@ const bebus = Bebas_Neue({
 function Sponsors({ className = '' }: SponsorsProps) {
   return (
     <div id="aboutus" className={`${poppins.className} container  mx-14 px-6 text-white h-full flex flex-col `}>
-      <div className={`{${className}  h-screen mx- w-full flex gap-16 justify-normal lg:justify-stretch`}>
+      <div className={`{${className}  h-screen mx- w-full flex gap-14 justify-normal lg:justify-stretch`}>
         <div className="hidden lg:flex flex-col justify-center gap-6 items-center text-4xl font-bold -rotate-90">
           <p >Thanks To Our</p>
           <span className="text-transparent [-webkit-text-stroke:1px_white] text-8xl font-bold ">Sponsors</span>
@@ -23,9 +23,9 @@ function Sponsors({ className = '' }: SponsorsProps) {
         <div className={`${bebus.className} text-center flex flex-col items-center justify-center lg:flex lg:items-center lg:justify-center gap-5`}>
         {/* Diamond Sponsors */ }
         <div className="flex gap-6 flex-col ">
-          <h1 className="text-center uppercase font-bold text-5xl text-white text-glow-p">platinum sponsor</h1>
+          <h1 className="text-center uppercase font-bold text-4xl md:text-5xl text-white text-glow-p">platinum sponsor</h1>
             <div className="border-t border-gray-500 w-full mx-auto" />
-              <div className="flex gap-12 text-4xl">
+              <div className="flex gap-4 text-2xl sm:text-3xl lg:text-4xl text-nowrap">
                 <p>Arab Bank</p>
                 <p>Arab Bank</p>
                 <p>Arab Bank</p>
@@ -33,9 +33,9 @@ function Sponsors({ className = '' }: SponsorsProps) {
         </div>
         {/* Gold Sponsors */}
         <div className="flex justify-center gap-6 flex-col">
-          <h1 className="text-center uppercase font-bold text-4xl text-glow-y">Gold sponsors</h1>
+          <h1 className="text-center uppercase font-bold text-3xl text-glow-y">Gold sponsors</h1>
             <div className="border-t border-gray-500 w-full mx-auto" />
-                <div className="flex gap-12 text-3xl">
+                <div className="flex gap-8 text-lg sm:text-2xl lg:text-3xl">
                   <p>Arab Bank</p>
                   <p>Arab Bank</p>
                   <p>Arab Bank</p>
@@ -43,9 +43,9 @@ function Sponsors({ className = '' }: SponsorsProps) {
         </div>
         {/* Silver Sponsors */}
         <div className="flex justify-center gap-6 flex-col">
-          <h1 className="text-center uppercase font-bold text-3xl text-glow-s">Silver sponsors</h1>
-            <div className="border-t border-gray-500 w-full mx-auto" />
-              <div className="flex gap-12 text-2xl">
+          <h1 className="text-center uppercase font-bold text-2xl text-glow-s">Silver sponsors</h1>
+            <div className="border-t border-gray-500 w-full mx-auto text-nowrap" />
+              <div className="flex gap-8 text-lg sm:text-2xl lg:text2xl">
                 <p>Arab Bank</p>
                 <p>Arab Bank</p>
                 <p>Arab Bank</p>
@@ -53,9 +53,9 @@ function Sponsors({ className = '' }: SponsorsProps) {
         </div>
         {/* Bronze Sponsors */}
         <div className="flex justify-center gap-6 flex-col">
-          <h1 className="text-center uppercase font-bold text-2xl text-glow-b ">Bronze sponsors</h1>
+          <h1 className="text-center uppercase font-bold text-xl text-glow-b ">Bronze sponsors</h1>
             <div className="border-t border-gray-500 w-full mx-auto" />
-              <div className="flex gap-12 text-xl">
+              <div className="flex gap-12 text-sm sm:text-xl lg:text-xl">
                 <p>Arab Bank</p>
                 <p>Arab Bank</p>
                 <p>Arab Bank</p>
