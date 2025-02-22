@@ -18,11 +18,19 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { ImageKitProvider, IKUpload } from "imagekitio-next";
 import { SponsorSchema } from "@/schemas";
+import { SponsersCatg } from "@prisma/client";
 import { createSponsor } from "@/actions/create-sponser";
 import {
   IKUploadResponse,
@@ -144,7 +152,43 @@ export function AddSponsorDialog() {
                   </FormItem>
                 )}
               />
-
+              <FormField
+                control={form.control}
+                name="Category"
+                render={({ field }) => {
+                  return (
+                    <FormItem>
+                      <FormLabel>Category</FormLabel>
+                      <Select
+                        disabled={isPending}
+                        onValueChange={field.onChange}
+                        defaultValue={field.value}
+                      >
+                        <FormControl>
+                          <SelectTrigger>
+                            <SelectValue placeholder="Select a role" />
+                          </SelectTrigger>
+                        </FormControl>
+                        <SelectContent>
+                          <SelectItem value={SponsersCatg.Bronze}>
+                            Bronze
+                          </SelectItem>
+                          <SelectItem value={SponsersCatg.Silver}>
+                            Silver
+                          </SelectItem>
+                          <SelectItem value={SponsersCatg.Gold}>
+                            Gold
+                          </SelectItem>
+                          <SelectItem value={SponsersCatg.Platinum}>
+                            Platinum
+                          </SelectItem>
+                        </SelectContent>
+                      </Select>
+                      <FormMessage />
+                    </FormItem>
+                  );
+                }}
+              />
               <FormItem>
                 <FormLabel>Image</FormLabel>
                 <FormControl>

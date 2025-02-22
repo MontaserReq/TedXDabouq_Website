@@ -15,7 +15,7 @@ const bebus = Bebas_Neue({
 function Sponsors({ className = '' }: SponsorsProps) {
   return (
     <div id="aboutus" className={`${poppins.className} container  mx-14 px-6 text-white h-full flex flex-col `}>
-      <div className={`{${className}  h-screen mx- w-full flex gap-16 justify-stretch`}>
+      <div className={`{${className}  h-screen mx- w-full flex gap-16 justify-normal lg:justify-stretch`}>
         <div className="hidden lg:flex flex-col justify-center gap-6 items-center text-4xl font-bold -rotate-90">
           <p >Thanks To Our</p>
           <span className="text-transparent [-webkit-text-stroke:1px_white] text-8xl font-bold ">Sponsors</span>

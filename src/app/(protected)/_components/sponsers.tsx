@@ -12,14 +12,19 @@ const Sponsors = async () => {
       {sponsors.length > 0 ? (
         <ul>
           {sponsors.map((sponsor) => (
-            <li key={sponsor.id} className="mb-4">
-              <div className="flex items-center w-12 h-12 rounded-full mr-4">
-                <ImgKT
-                  src={sponsor.Imgpath}
-                  alt={sponsor.Name}
-                />
+            <li
+              key={sponsor.id}
+              className="mb-4 flex items-center justify-start gap-4"
+            >
+              <div className="w-12 h-12 rounded-full mr-4">
+                <ImgKT src={sponsor.Imgpath} alt={sponsor.Name} />
+              </div>
+              <div className="flex items-center justify-start gap-10 w-fit">
                 <div>
                   <p className="font-semibold">{sponsor.Name}</p>
+                </div>
+                <div>
+                  <p className="font-semibold">Category: {sponsor.Category}</p>
                 </div>
               </div>
             </li>

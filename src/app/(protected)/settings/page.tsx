@@ -178,34 +178,6 @@ const SettingsPage = () => {
                   );
                 }}
               />
-              {/* {user?.isOAuth === false && (
-                <FormField
-                  control={form.control}
-                  name="isTwoFactorEnabled"
-                  render={({ field }) => {
-                    return (
-                      <FormItem className="">
-                        <div className="space-y-0.5">
-                          <FormLabel>Two Factor Authentication</FormLabel>
-                          <FormDescription>
-                            Enable two factor authentication for your account
-                          </FormDescription>
-                          <div>
-                            <FormControl>
-                              <Switch
-                                checked={field.value}
-                                disabled={isPending}
-                                onCheckedChange={field.onChange}
-                              />
-                            </FormControl>
-                          </div>
-                          <FormMessage />
-                        </div>
-                      </FormItem>
-                    );
-                  }}
-                />
-              )} */}
             </div>
             <ErrorMessage message={error} />
             <SuccessMessage message={success} />

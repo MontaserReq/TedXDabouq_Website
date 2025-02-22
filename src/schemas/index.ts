@@ -79,4 +79,5 @@ export const SpeakerSchema = z.object({
 export const SponsorSchema = z.object({
   Name: z.string().min(1, "Name is required"),
   Imgpath: z.string(),
+  Category: z.string().min(1, "Select Sponser's Category"),
 });
