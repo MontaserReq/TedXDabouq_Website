@@ -67,6 +67,7 @@ export function AddSponsorDialog() {
   const [uploadedImagePath, setUploadedImagePath] = useState<string | null>(
     null
   );
+  const [imgId, setImgId] = useState<string>("");
   const [isUploading, setIsUploading] = useState(false);
   const uploadRef = useRef<HTMLInputElement>(null);
 
@@ -89,18 +90,20 @@ export function AddSponsorDialog() {
   const onSuccess = (res: IKUploadResponse) => {
     console.log("Success", res);
     setUploadedImagePath(res.filePath);
+    setImgId(res.fileId);
     toast.success("Image uploaded successfully!");
   };
 
   const onSubmit = (values: z.infer<typeof SponsorSchema>) => {
     console.log("Submitting form...", values);
 
-    if (!uploadedImagePath) {
+    if (!uploadedImagePath || !imgId) {
       toast.error("Please upload an image before creating a sponsor.");
       return;
     }
 
     values.Imgpath = uploadedImagePath;
+    values.fileId = imgId;
 
     startTransition(() => {
       createSponsor(values)

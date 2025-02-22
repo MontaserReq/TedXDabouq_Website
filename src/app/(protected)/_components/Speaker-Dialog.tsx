@@ -59,6 +59,7 @@ export function AddSpeakerDialog() {
   const [uploadedImagePath, setUploadedImagePath] = useState<string | null>(
     null
   );
+  const [imgId, setImgId] = useState<string | null>(null);
   const [isUploading, setIsUploading] = useState(false);
   const uploadRef = useRef<HTMLInputElement>(null);
 
@@ -68,6 +69,7 @@ export function AddSpeakerDialog() {
       FName: "",
       LName: "",
       Imgpath: "",
+      fileId: "",
       SocialLink: "",
     },
   });
@@ -86,16 +88,18 @@ export function AddSpeakerDialog() {
   const onSuccess = (res: IKUploadResponse) => {
     console.log("Success", res);
     setUploadedImagePath(res.filePath);
+    setImgId(res.fileId);
     toast.success("Image uploaded successfully!");
   };
 
   const onSubmit = (values: z.infer<typeof SpeakerSchema>) => {
     console.log("Submitting form...", values);
-    if (!uploadedImagePath) {
+    if (!uploadedImagePath || !imgId) {
       toast.error("Please upload an image before creating a speaker.");
       return;
     }
     values.Imgpath = uploadedImagePath;
+    values.fileId = imgId;
     startTransition(() => {
       createSpeaker(values)
         .then((data) => {

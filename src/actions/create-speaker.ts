@@ -12,12 +12,19 @@ export const createSpeaker = async (values: z.infer<typeof SpeakerSchema>) => {
   }
 
   const user = await currentUser();
+  console.log("Current User:", user);
 
   if (!user) {
     return { error: "unauthorized access" };
   }
 
-  const { FName, LName, Imgpath, SocialLink = "" } = validatedFields.data;
+  const {
+    FName,
+    LName,
+    Imgpath,
+    fileId,
+    SocialLink = "",
+  } = validatedFields.data;
 
   try {
     await db.speakers.create({
@@ -25,8 +32,9 @@ export const createSpeaker = async (values: z.infer<typeof SpeakerSchema>) => {
         FName,
         LName,
         Imgpath,
+        fileId,
         SocialLink,
-        createdBy: user.id as string,
+        createdBy: user?.id as string,
       },
     });
     return { success: "Speaker created successfully!" };

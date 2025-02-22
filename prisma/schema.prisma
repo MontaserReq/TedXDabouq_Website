@@ -90,6 +90,7 @@ model Speakers {
   FName       String
   LName       String
   Imgpath     String
+  fileId      String
   SocialLink  String
   createdBy   String
   createdAt   DateTime @default(now())
@@ -101,6 +102,7 @@ model Sponser {
   id          String @id @default(cuid())
   Name        String
   Imgpath     String
+  fileId      String
   Category    SponsersCatg  @default(Bronze)
   createdBy   String
   createdAt   DateTime @default(now())

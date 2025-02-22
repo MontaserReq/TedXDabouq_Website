@@ -1,4 +1,4 @@
-import { UserRole } from "@prisma/client";
+import { SponsersCatg, UserRole } from "@prisma/client";
 import * as z from "zod";
 
 export const SettingsSchema = z
@@ -73,11 +73,18 @@ export const SpeakerSchema = z.object({
   FName: z.string().min(1, "First name is required"),
   LName: z.string().min(1, "Last name is required"),
   Imgpath: z.string(),
+  fileId: z.string(),
   SocialLink: z.string().url("Invalid URL").optional(),
 });
 
 export const SponsorSchema = z.object({
   Name: z.string().min(1, "Name is required"),
   Imgpath: z.string(),
-  Category: z.string().min(1, "Select Sponser's Category"),
+  fileId: z.string(),
+  Category: z.enum([
+    SponsersCatg.Bronze,
+    SponsersCatg.Silver,
+    SponsersCatg.Gold,
+    SponsersCatg.Platinum,
+  ]),
 });
