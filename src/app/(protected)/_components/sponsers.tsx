@@ -5,7 +5,7 @@ const Sponsors = async () => {
   const sponsors = await getAllSponsers();
 
   if (!sponsors || sponsors.length === 0) {
-    return <p>No speakers found.</p>;
+    return <p>No Sponsers found.</p>;
   }
   return (
     <>
