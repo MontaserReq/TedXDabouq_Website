@@ -67,13 +67,13 @@ export function AddSponsorDialog() {
   const [uploadedImagePath, setUploadedImagePath] = useState<string | null>(
     null
   );
-  const [imgId, setImgId] = useState<string>("");
+  const [imgId, setImgId] = useState<string | null>();
   const [isUploading, setIsUploading] = useState(false);
   const uploadRef = useRef<HTMLInputElement>(null);
 
   const form = useForm<z.infer<typeof SponsorSchema>>({
     resolver: zodResolver(SponsorSchema),
-    defaultValues: { Name: "", Imgpath: "" },
+    defaultValues: { Name: "", Imgpath: "", fileId: "" },
   });
 
   const handleFileSelect = () => {
@@ -88,7 +88,6 @@ export function AddSponsorDialog() {
   };
 
   const onSuccess = (res: IKUploadResponse) => {
-    console.log("Success", res);
     setUploadedImagePath(res.filePath);
     setImgId(res.fileId);
     toast.success("Image uploaded successfully!");

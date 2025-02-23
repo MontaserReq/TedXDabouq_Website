@@ -14,17 +14,15 @@ export const deleteSpeaker = async (id: string) => {
   });
 
   if (!ExistingSpeaker) {
-    throw new Error("Sponsor does not exist");
+    throw new Error("Speaker does not exist");
   }
 
   try {
     if (ExistingSpeaker.Imgpath) {
-      await imagekit.deleteFile(
-        "https://api.imagekit.io/v1/files/" + ExistingSpeaker.fileId
-      );
+      await imagekit.deleteFile(ExistingSpeaker.fileId);
     }
 
-    await db.sponser.delete({
+    await db.speakers.delete({
       where: {
         id: ExistingSpeaker.id,
       },
