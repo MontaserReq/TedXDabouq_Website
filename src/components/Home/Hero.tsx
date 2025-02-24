@@ -3,6 +3,7 @@ import Image from "next/image";
 import { AiOutlinePlus } from "react-icons/ai";
 import { Poppins } from "next/font/google";
 import Nav from "./Nav";
+import Link from "next/link";
 
 interface HeroProps {
   className?: string;
@@ -49,9 +50,12 @@ export default function Hero({ className }: HeroProps) {
               </div>
             </div>
             <div className="flex justify-center absolute left-1/2 -translate-x-1/2 whitespace-nowrap">
-              <button className="uppercase text-xs md:text-sm lg:text-base xl:text-lg py-2 px-8 text-black bg-white rounded-lg">
+              <Link
+                href="https://www.ted.com/tedx/events/59605"
+                className="uppercase text-xs md:text-sm lg:text-base xl:text-lg py-2 px-8 text-black bg-white rounded-lg"
+              >
                 Learn more
-              </button>
+              </Link>
             </div>
           </div>
         </div>

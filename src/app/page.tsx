@@ -1,11 +1,11 @@
 import Aboutus from "../components/Home/Aboutus";
 import Tickets from "../components/Home/Tickets";
 import Contact from "../components/Home/Contact";
-import Speakers from "../components/Home/Speakers";
 import Ted from "../components/Home/Ted";
 import "./globals.css";
 import Hero from "../components/Home/Hero";
 import Sponsors from "../components/Home/Sponsors";
+import SpeakersWrapper from "@/components/Home/SpeakersWrapper";
 
 export default function Home() {
   return (
@@ -32,7 +32,7 @@ export default function Home() {
         id="speakers"
         className="w-full flex justify-center items-center bg-[url('../../public/images/Cover1.svg')] bg-cover bg-[60%] bg-no-repeat "
       >
-        <Speakers className="h-screen w-full snap-start flex justify-center items-center" />
+        <SpeakersWrapper className="h-screen w-full snap-start flex justify-center items-center" />
       </section>
       <section
         id="sponsors"
@@ -41,7 +41,7 @@ export default function Home() {
         <Sponsors className="h-screen w-full snap-start flex justify-center items-center " />
       </section>
       <section
-        id="contact"  
+        id="contact"
         className="w-full flex justify-center items-center  bg-[url('../../public/images/Cover1.svg')] bg-cover bg-[30%] bg-no-repeat "
       >
         <Contact className="h-screen w-full snap-start flex justify-center items-center " />

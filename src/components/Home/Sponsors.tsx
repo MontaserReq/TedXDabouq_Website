@@ -1,3 +1,4 @@
+import ImgKT from "@/app/(protected)/_components/ImgKT";
 import { getAllSponsers } from "@/data/sponsers";
 import { Bebas_Neue, Poppins } from "next/font/google";
 
@@ -12,7 +13,7 @@ const bebus = Bebas_Neue({
   weight: ["400"],
   subsets: ["latin"],
 });
-async function Sponsors({className=""}: SponsorsProps) {
+async function Sponsors({ className = "" }: SponsorsProps) {
   const sponsors = await getAllSponsers();
 
   if (!sponsors || sponsors.length === 0) {
@@ -22,7 +23,7 @@ async function Sponsors({className=""}: SponsorsProps) {
   return (
     <div
       id="aboutus"
-      className={`${poppins.className} container mx-auto px-6 h-full flex flex-col items-center`}
+      className={`${poppins.className} container mx-auto px-6 h-full flex flex-col items-center text-white`}
     >
       <div
         className={`{${className} h-screen mx- w-full flex gap-14 justify-normal lg:justify-stretch`}
@@ -41,11 +42,16 @@ async function Sponsors({className=""}: SponsorsProps) {
               platinum sponsor
             </h1>
             <div className="border-t border-gray-500 w-full mx-auto" />
-            <div className="flex gap-4 text-2xl sm:text-3xl lg:text-4xl text-nowrap">
+            <div className="flex gap-4 text-2xl sm:text-3xl lg:text-4xl text-nowrap items-center">
               {sponsors
                 .filter((sponsor) => sponsor.Category === "Platinum")
                 .map((sponsor, index) => (
-                  <p key={index}>{sponsor.Name}</p>
+                  <div
+                    key={index}
+                    className="w-20 h-auto aspect-square flex items-center justify-center object-cover"
+                  >
+                    <ImgKT src={sponsor.Imgpath} alt={sponsor.Name} />
+                  </div>
                 ))}
             </div>
           </div>
@@ -54,11 +60,16 @@ async function Sponsors({className=""}: SponsorsProps) {
               Gold sponsors
             </h1>
             <div className="border-t border-gray-500 w-full mx-auto" />
-            <div className="flex gap-8 text-lg sm:text-2xl lg:text-3xl">
+            <div className="flex gap-8 text-lg sm:text-2xl lg:text-3xl items-center">
               {sponsors
                 .filter((sponsor) => sponsor.Category === "Gold")
                 .map((sponsor, index) => (
-                  <p key={index}>{sponsor.Name}</p>
+                  <div
+                    key={index}
+                    className="w-20 h-auto aspect-square flex items-center justify-center object-cover"
+                  >
+                    <ImgKT src={sponsor.Imgpath} alt={sponsor.Name} />
+                  </div>
                 ))}
             </div>
           </div>
@@ -67,11 +78,16 @@ async function Sponsors({className=""}: SponsorsProps) {
               Silver sponsors
             </h1>
             <div className="border-t border-gray-500 w-full mx-auto text-nowrap" />
-            <div className="flex gap-8 text-lg sm:text-2xl lg:text2xl">
+            <div className="flex gap-8 text-lg sm:text-2xl lg:text2xl items-center">
               {sponsors
                 .filter((sponsor) => sponsor.Category === "Silver")
                 .map((sponsor, index) => (
-                  <p key={index}>{sponsor.Name}</p>
+                  <div
+                    key={index}
+                    className="w-20 h-auto aspect-square flex items-center justify-center object-cover"
+                  >
+                    <ImgKT src={sponsor.Imgpath} alt={sponsor.Name} />
+                  </div>
                 ))}
             </div>
           </div>
@@ -80,11 +96,16 @@ async function Sponsors({className=""}: SponsorsProps) {
               Bronze sponsors
             </h1>
             <div className="border-t border-gray-500 w-full mx-auto" />
-            <div className="flex gap-12 text-sm sm:text-xl lg:text-xl">
+            <div className="flex gap-12 text-sm sm:text-xl lg:text-xl items-center">
               {sponsors
                 .filter((sponsor) => sponsor.Category === "Bronze")
                 .map((sponsor, index) => (
-                  <p key={index}>{sponsor.Name}</p>
+                  <div
+                    key={index}
+                    className="w-20 h-auto aspect-square flex items-center justify-center object-cover"
+                  >
+                    <ImgKT src={sponsor.Imgpath} alt={sponsor.Name} />
+                  </div>
                 ))}
             </div>
           </div>

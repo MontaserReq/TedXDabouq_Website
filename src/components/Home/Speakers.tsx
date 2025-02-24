@@ -1,32 +1,25 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import Speaker1 from "../../../public/images/Omar.png";
-import Speaker2 from "../../../public/images/Img1.png";
-import Speaker3 from "../../../public/images/Img2.png";
-import Speaker4 from "../../../public/images/Img3.png";
-import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import ImgKT from "@/app/(protected)/_components/ImgKT";
 
 interface SpeakersProps {
   className: string;
+  speakersList:
+    | {
+        id: string;
+        FName: string;
+        LName: string;
+        Imgpath: string;
+        fileId: string;
+        SocialLink: string;
+        createdBy: string;
+        createdAt: Date;
+        updatedAt: Date;
+      }[];
 }
 
-const speakersList = [
-  { id: 0, name: "Montaser", image: Speaker1 },
-  { id: 1, name: "Omar Sabri", image: Speaker2 },
-  { id: 2, name: "Mohammad", image: Speaker3 },
-  { id: 3, name: "Sarah", image: Speaker4 },
-  { id: 5, name: "Montaser", image: Speaker1 },
-  { id: 6, name: "Omar Sabri", image: Speaker2 },
-  { id: 7, name: "Mohammad", image: Speaker3 },
-  { id: 8, name: "Sarah", image: Speaker4 },
-  { id: 9, name: "Montaser", image: Speaker1 },
-  { id: 10, name: "Omar Sabri", image: Speaker2 },
-  { id: 11, name: "Mohammad", image: Speaker3 },
-  { id: 12, name: "Sarah", image: Speaker4 },
-];
-
-export default function Speakers({ className }: SpeakersProps) {
+export default function Speakers({ className, speakersList }: SpeakersProps) {
   const [startIndex, setStartIndex] = useState(0);
   const [numVisibleSpeakers, setNumVisibleSpeakers] = useState(1);
   const [isHovered, setIsHovered] = useState(false);
@@ -99,25 +92,21 @@ export default function Speakers({ className }: SpeakersProps) {
             </button>
 
             <div className="flex justify-center w-full gap-10 sm:gap-6 md:gap-10 relative">
-              {visibleSpeakers.map((speaker) => (
+              {visibleSpeakers.map((speaker, index) => (
                 <div
-                  key={speaker.id}
+                  key={index}
                   className="flex flex-col items-center"
                   onMouseEnter={() => setIsHovered(true)}
                   onMouseLeave={() => setIsHovered(false)}
                 >
                   <div className="flex items-end justify-center">
-                    <Image
-                      src={speaker.image}
-                      alt={speaker.name}
-                      className="w-56 h-80 object-cover rounded-lg transition-all hover:grayscale-0 duration-300 ease-in-out grayscale hover:cursor-pointer hover:scale-110 hover:-translate-y-[5%]"
-                      width={224}
-                      height={290}
-                    />
+                    <div className="w-56 h-80 object-cover rounded-lg transition-all hover:grayscale-0 duration-300 ease-in-out grayscale hover:cursor-pointer hover:scale-110 hover:-translate-y-[5%]">
+                      <ImgKT src={speaker.Imgpath} alt={speaker.FName} />
+                    </div>
                   </div>
                   <hr className="w-[130%] border-2 mb-4" />
                   <div className="text-xl font-semibold mt-4">
-                    {speaker.name}
+                    {speaker.FName + " " + speaker.LName}
                   </div>
                 </div>
               ))}
