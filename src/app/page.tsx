@@ -18,7 +18,7 @@ export default function Home() {
       </section>
       <section
         id="ted"
-        className="w-full flex justify-center items-center bg-[rgba(10,10,10,0.92)]"
+        className="w-full flex justify-center items-center bg-[url('../../public/images/XTed.png')] bg-cover bg-[#0a0a0a] bg-opacity-100 bg-[50%] bg-no-repeat"
       >
         <Ted className="h-screen w-full snap-start flex justify-center items-center" />
       </section>
@@ -36,13 +36,13 @@ export default function Home() {
       </section>
       <section
         id="sponsors"
-        className="w-full flex justify-center items-center bg-[url('../../public/images/Cover1.svg')] bg-cover bg-[20%] bg-no-repeat"
+        className="w-full flex justify-center items-center bg-[url('../../public/images/Cover.svg')] bg-cover bg-[60%] bg-no-repeat "
       >
         <Sponsors className="h-screen w-full snap-start flex justify-center items-center " />
       </section>
       <section
-        id="contact"
-        className="w-full flex justify-center items-center  bg-[url('../../public/images/Cover.svg')] bg-cover bg-[30%] bg-no-repeat "
+        id="contact"  
+        className="w-full flex justify-center items-center  bg-[url('../../public/images/Cover1.svg')] bg-cover bg-[30%] bg-no-repeat "
       >
         <Contact className="h-screen w-full snap-start flex justify-center items-center " />
       </section>

@@ -12,7 +12,7 @@ const bebus = Bebas_Neue({
   weight: ["400"],
   subsets: ["latin"],
 });
-async function Sponsors({ className = "" }: SponsorsProps) {
+async function Sponsors({className=""}: SponsorsProps) {
   const sponsors = await getAllSponsers();
 
   if (!sponsors || sponsors.length === 0) {
@@ -22,10 +22,10 @@ async function Sponsors({ className = "" }: SponsorsProps) {
   return (
     <div
       id="aboutus"
-      className={`${poppins.className} container  mx-14 px-6 text-white h-full flex flex-col `}
+      className={`${poppins.className} container mx-auto px-6 h-full flex flex-col items-center`}
     >
       <div
-        className={`{${className}  h-screen mx- w-full flex gap-14 justify-normal lg:justify-stretch`}
+        className={`{${className} h-screen mx- w-full flex gap-14 justify-normal lg:justify-stretch`}
       >
         <div className="hidden lg:flex flex-col justify-center gap-6 items-center text-4xl font-bold -rotate-90">
           <p>Thanks To Our</p>

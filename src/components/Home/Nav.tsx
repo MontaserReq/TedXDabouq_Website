@@ -90,16 +90,16 @@
             Speakers
           </a>
           <a
-            href="#contact"
-            className={`${poppins.className} ${activeLink === "#contact" ? "text-primary-red" : "text-white"} hover:text-primary-red uppercase py-2`}
-          >
-            Contact
-          </a>
-          <a
             href="#sponsors"
             className={`${poppins.className} ${activeLink === "#sponsors" ? "text-primary-red" : "text-white"} hover:text-primary-red uppercase py-2`}
           >
             Sponsors
+          </a>
+          <a
+            href="#contact"
+            className={`${poppins.className} ${activeLink === "#contact" ? "text-primary-red" : "text-white"} hover:text-primary-red uppercase py-2`}
+          >
+            Contact
           </a>
           <a
             href="#tickets"
@@ -157,6 +157,13 @@
                   Speakers
                 </a>
                 <a
+                  href="#sponsors"
+                  onClick={closeMenu}
+                  className={`text-white font-semibold hover:text-primary-red text-4xl py-3 ${activeLink === "#sponsors" ? "text-primary-red" : ""} text-center`}
+                >
+                  Sponsors
+                </a>
+                <a
                   href="#contact"
                   onClick={closeMenu}
                   className={`text-white font-semibold hover:text-primary-red text-4xl py-3 ${activeLink === "#contact" ? "text-primary-red" : ""} text-center`}
@@ -169,13 +176,6 @@
                   className={`text-white font-semibold hover:text-primary-red text-4xl py-3 ${activeLink === "#tickets" ? "text-primary-red" : ""} text-center`}
                 >
                   Tickets
-                </a>
-                <a
-                  href="#sponsors"
-                  onClick={closeMenu}
-                  className={`text-white font-semibold hover:text-primary-red text-4xl py-3 ${activeLink === "#sponsors" ? "text-primary-red" : ""} text-center`}
-                >
-                  Sponsors
                 </a>
               </div>
             </div>
