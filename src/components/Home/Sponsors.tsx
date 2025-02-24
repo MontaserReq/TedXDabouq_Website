@@ -35,9 +35,9 @@ async function Sponsors({ className = "" }: SponsorsProps) {
           </span>
         </div>
         <div
-          className={`${bebus.className} text-center flex flex-col items-center justify-center lg:flex lg:items-center lg:justify-center gap-5`}
+          className={`${bebus.className} mt-8 text-center flex flex-col items-center justify-center lg:flex lg:items-center lg:justify-center gap-5`}
         >
-          <div className="flex gap-6 flex-col ">
+          <div className="flex gap-4 flex-col ">
             <h1 className="text-center uppercase font-bold text-4xl md:text-5xl text-white text-glow-p">
               platinum sponsor
             </h1>
@@ -55,7 +55,7 @@ async function Sponsors({ className = "" }: SponsorsProps) {
                 ))}
             </div>
           </div>
-          <div className="flex justify-center gap-6 flex-col">
+          <div className="flex justify-center flex-col">
             <h1 className="text-center uppercase font-bold text-3xl text-glow-y">
               Gold sponsors
             </h1>
@@ -73,7 +73,7 @@ async function Sponsors({ className = "" }: SponsorsProps) {
                 ))}
             </div>
           </div>
-          <div className="flex justify-center gap-6 flex-col">
+          <div className="flex justify-center flex-col">
             <h1 className="text-center uppercase font-bold text-2xl text-glow-s">
               Silver sponsors
             </h1>
@@ -91,7 +91,7 @@ async function Sponsors({ className = "" }: SponsorsProps) {
                 ))}
             </div>
           </div>
-          <div className="flex justify-center gap-6 flex-col">
+          <div className="flex justify-center flex-col">
             <h1 className="text-center uppercase font-bold text-xl text-glow-b ">
               Bronze sponsors
             </h1>
