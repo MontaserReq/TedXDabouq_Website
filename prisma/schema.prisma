@@ -103,6 +103,7 @@ model Sponser {
   Name        String
   Imgpath     String
   fileId      String
+  SocialLink  String
   Category    SponsersCatg  @default(Bronze)
   createdBy   String
   createdAt   DateTime @default(now())

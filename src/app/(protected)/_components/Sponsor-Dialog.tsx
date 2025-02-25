@@ -73,7 +73,7 @@ export function AddSponsorDialog() {
 
   const form = useForm<z.infer<typeof SponsorSchema>>({
     resolver: zodResolver(SponsorSchema),
-    defaultValues: { Name: "", Imgpath: "", fileId: "" },
+    defaultValues: { Name: "", Imgpath: "", fileId: "", SocialLink: "" },
   });
 
   const handleFileSelect = () => {
@@ -190,6 +190,19 @@ export function AddSponsorDialog() {
                     </FormItem>
                   );
                 }}
+              />
+              <FormField
+                control={form.control}
+                name={"SocialLink"}
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Social Link</FormLabel>
+                    <FormControl>
+                      <Input {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
               />
               <FormItem>
                 <FormLabel>Image</FormLabel>

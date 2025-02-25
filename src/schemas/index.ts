@@ -81,6 +81,7 @@ export const SponsorSchema = z.object({
   Name: z.string().min(1, "Name is required"),
   Imgpath: z.string(),
   fileId: z.string(),
+  SocialLink: z.string().url("Invalid URL"),
   Category: z.enum([
     SponsersCatg.Bronze,
     SponsersCatg.Silver,

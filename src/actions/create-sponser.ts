@@ -19,7 +19,7 @@ export const createSponsor = async (values: z.infer<typeof SponsorSchema>) => {
     return { error: "Unauthorized!" };
   }
 
-  const { Name, Imgpath, fileId, Category } = validatedFields.data;
+  const { Name, Imgpath, fileId, Category, SocialLink } = validatedFields.data;
 
   console.log("Validated Data:", validatedFields.data);
 
@@ -30,6 +30,7 @@ export const createSponsor = async (values: z.infer<typeof SponsorSchema>) => {
         Imgpath,
         fileId,
         Category,
+        SocialLink,
         createdBy: user?.id as string,
       },
     });
