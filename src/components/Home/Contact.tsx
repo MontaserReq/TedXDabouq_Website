@@ -18,7 +18,7 @@ export default function Contact({ className = "" }: ContactProps) {
           WITH <span className="text-secondary-red ">TEDX</span>DABOUQ
         </h1>
         <h1
-          className="absolute top-[50%] left-[50%] text-nowrap -translate-x-[50%] text-[10vw] md:text-[6vw] leading-tight font-bold tracking-tight text-transparent font-bebas z-50"
+          className="absolute top-[50%] left-[50%] text-nowrap -translate-x-[50%] text-[10vw] md:text-[6vw] leading-tight font-bold tracking-tight text-transparent font-bebas z-10"
           style={{ WebkitTextStroke: "1px white" }}
         >
           GET INVOLVED
