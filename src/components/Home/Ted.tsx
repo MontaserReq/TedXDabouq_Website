@@ -23,10 +23,14 @@ function Ted({ className = "" }: AboutusProps) {
         // PC size: Use bigger image
         setImageSrc("/images/TedPC.png");
         setImageSize({ width: 25000, height: 12000 }); // Increase size on PC
-      } else {
+      } else if (window.innerWidth>= 444){
         // Mobile size
         setImageSrc("/images/TedMobile.png");
         setImageSize({ width: 25000, height: 12000 }); // Smaller on mobile
+      }
+      else{
+        setImageSrc("/images/Small-mobile.png");
+        setImageSize({ width: 30000, height: 18000 });
       }
     };
 

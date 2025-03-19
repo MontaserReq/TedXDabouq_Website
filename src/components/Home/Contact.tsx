@@ -23,7 +23,14 @@ export default function Contact({ className = "" }: ContactProps) {
         >
           GET INVOLVED
           <br />
-          WITH <span className="text-secondary-red"  style={{ WebkitTextStroke: "0px white" }}>TEDx</span>DABOUQ
+          WITH{" "}
+          <span
+            className="text-secondary-red"
+            style={{ WebkitTextStroke: "0px white" }}
+          >
+            TEDx
+          </span>
+          DABOUQ
         </h1>
         <div className="relative w-full h-full flex justify-between items-end mt-8 ">
           <Image
@@ -42,7 +49,7 @@ export default function Contact({ className = "" }: ContactProps) {
           />
         </div>
       </div>
-      <div className="bg-[#b4001e] z-10 relative w-full bottom-0 left-0 right-0 h-[20vh] flex flex-col items-center justify-center text-center py-6 px-4">
+      <div className="bg-[#b4001e] z-10 relative w-full pb-10 md:pb-5 bottom-0 left-0 right-0 h-auto flex flex-col items-center justify-center text-center py-6 px-4">
         <p className="text-lg md:text-xl max-w-2xl">
           Become a part of the TEDxDabouq journey by supporting the event.
         </p>

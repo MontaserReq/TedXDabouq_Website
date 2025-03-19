@@ -89,7 +89,7 @@ async function Sponsors({ className = "" }: SponsorsProps) {
               Silver sponsors
             </h1>
             <div className="border-t border-gray-500 w-full mx-auto mb-4" />
-            <div className="flex gap-4 flex-wrap text-2xl sm:text-3xl lg:text-4xl items-center justify-center overflow-visible max-w-[280px] sm:max-w-[380px] lg:max-w-[450px]">
+            <div className="flex gap-2 flex-wrap text-2xl sm:text-3xl lg:text-4xl items-center justify-center overflow-visible max-w-[280px] sm:max-w-[380px] lg:max-w-[450px]">
               {sponsors
                 .filter((sponsor) => sponsor.Category === "Silver")
                 .map((sponsor, index) => (
@@ -109,13 +109,13 @@ async function Sponsors({ className = "" }: SponsorsProps) {
               Bronze sponsors
             </h1>
             <div className="border-t border-gray-500 mb-4 w-full mx-auto" />
-            <div className="flex gap-4 flex-wrap  text-2xl sm:text-3xl lg:text-4xl items-center justify-center overflow-visible max-w-[280px] sm:max-w-[400px] lg:max-w-[500px]">
+            <div className="flex gap-4 flex-wrap  text-2xl sm:text-3xl lg:text-4xl items-center justify-center overflow-visible max-w-[280px] sm:max-w-[400px] lg:max-w-[400px]">
               {sponsors
                 .filter((sponsor) => sponsor.Category === "Bronze")
                 .map((sponsor, index) => (
                   <div
                     key={index}
-                    className="w-auto h-10 sm:h-14 lg:h-[60px] -mb-2 aspect-square flex items-center justify-center object-cover"
+                    className="w-auto h-10 sm:h-14 lg:h-[50px] -mb-2 aspect-square flex items-center justify-center object-cover"
                   >
                     <Link href={sponsor.SocialLink}>
                       <ImgKT src={sponsor.Imgpath} alt={sponsor.Name} />
