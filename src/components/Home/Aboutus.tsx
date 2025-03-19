@@ -18,9 +18,9 @@ function Aboutus({ className = "" }: AboutusProps) {
       className={`${poppins.className} container mx-auto px-6 h-full flex flex-col lg:flex-row justify-start items-start`}
     >
       <div
-        className={`${className} w-full flex flex-col  justify-center lg:flex-row gap-6 md:gap-10 lg:gap-16 xl:gap-0`}
+        className={`${className} w-full flex flex-col  justify-center lg:flex-row gap-0 md:gap-10 lg:gap-16 xl:gap-0`}
       >
-        <div className="text-white relative lg:left-0 lg:translate-x-[0%] left-[50%] translate-x-[-50%] space-y-3 font-semibold ">
+        <div className="text-white bottom-20 lg:bottom-0  relative lg:left-0 lg:translate-x-[0%] left-[50%] translate-x-[-50%] space-y-3 font-semibold ">
           <h1 className="text-4xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl font-semibold tracking-tighter relative">
             <span className="absolute -left-2 top-2 w-2 h-2 xl:w-4 xl:h-4 xl:-left-10 xl:top-4 bg-primary-red rounded-full animate-pulse" />
             About
@@ -52,7 +52,7 @@ function Aboutus({ className = "" }: AboutusProps) {
             alt="Ted Speaker"
             width={150}
             height={232}
-            className="aspect-[16/9] mb-20 absolute right-[50%] translate-x-[50%] max-w-[500px] w-full ml-28 grayscale transition-all  hover:grayscale-0 duration-300 ease-in-out  hover:cursor-pointer hover:scale-105 "
+            className="aspect-[16/9] max-w-[370px] mb-20 absolute right-[50%]  translate-x-[50%] lg:max-w-[500px] w-full ml-28 grayscale transition-all  hover:grayscale-0 duration-300 ease-in-out  hover:cursor-pointer hover:scale-105 "
           />
         </div>
       </div>

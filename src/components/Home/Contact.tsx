@@ -1,5 +1,6 @@
 import { GoArrowDownRight } from "react-icons/go";
 import Image from "next/image";
+import Link from "next/link";
 
 interface ContactProps {
   className?: string;
@@ -55,9 +56,13 @@ export default function Contact({ className = "" }: ContactProps) {
         </p>
         <div className="text-white font-bold flex items-center gap-4 mt-4">
           <button className="hover:scale-110 transition-transform">
+            <Link
+              href="https://wa.me/962787587764"
+            >
             <div className="bg-gray-900 rounded-full p-3">
               <GoArrowDownRight size={32} />
-            </div>
+            </div></Link>
+
           </button>
           <h3 className="text-lg md:text-xl">Partner With Us</h3>
         </div>
