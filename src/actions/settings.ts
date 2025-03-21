@@ -9,13 +9,17 @@ import bcryptjs from "bcryptjs";
 import { currentUser } from "@/lib/user";
 
 export const settings = async (values: z.infer<typeof SettingsSchema>) => {
-  console.log("Values received in settings:", values); // لمراقبة البيانات المدخلة
-
   const user = await currentUser();
-  if (!user || !user.id) return { error: "Unauthorized" };
+
+  if (!user || !user.id) {
+    return { error: "Unauthorized" };
+  }
 
   const dbUser = await getUserById(user.id);
-  if (!dbUser) return { error: "Unauthorized" };
+
+  if (!dbUser) {
+    return { error: "Unauthorized" };
+  }
 
   if (user.isOAuth) {
     values.email = undefined;
@@ -24,7 +28,7 @@ export const settings = async (values: z.infer<typeof SettingsSchema>) => {
     values.isTwoFactorEnabled = undefined;
   }
 
-  if (values.email && typeof values.email === "string" && values.email !== user.email) {
+  if (values.email && values.email !== user.email) {
     const ExistingUser = await getUserByEmail(values.email);
 
     if (ExistingUser && ExistingUser.id !== user.id) {
@@ -37,21 +41,25 @@ export const settings = async (values: z.infer<typeof SettingsSchema>) => {
     return { success: "Email changed, please verify your email" };
   }
 
-  if (values.newPassword && values.password && dbUser.password) {
+  if (values.newPassword && values.password && typeof dbUser.password === "string") {
     const passwordsMatch = await bcryptjs.compare(values.password, dbUser.password);
-
+    
     if (!passwordsMatch) {
       return { error: "Invalid password" };
     }
-
+  
     const hashedPassword = await bcryptjs.hash(values.newPassword, 10);
+  
     values.password = hashedPassword;
     values.newPassword = undefined;
   }
+  
 
   await db.user.update({
     where: { id: dbUser.id },
-    data: { ...values },
+    data: {
+      ...values,
+    },
   });
 
   return { success: "Settings Updated!" };
