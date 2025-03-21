@@ -52,25 +52,29 @@ export const settings = async (values: z.infer<typeof SettingsSchema>) => {
 
   // التحقق من تغيير كلمة المرور
   if (values.newPassword && values.password && dbUser.password) {
-    try {
-      const passwordsMatch = await bcryptjs.compare(
-        values.password,
-        dbUser.password
-      );
-
-      if (!passwordsMatch) {
-        return { error: "Invalid password" };
-      }
-
-      const hashedPassword = await bcryptjs.hash(values.newPassword, 10);
-
-      values.password = hashedPassword;
-      values.newPassword = undefined;
-    } catch (error) {
-      console.error("Error changing password:", error);
-      return { error: "An error occurred while changing password." };
+    if(typeof values.password !== 'string'){
+        console.error("values.password is not a string");
+        return {error: "Invalid password format."};
     }
+  try {
+    const passwordsMatch = await bcryptjs.compare(
+      values.password,
+      dbUser.password
+    );
+
+    if (!passwordsMatch) {
+      return { error: "Invalid password" };
+    }
+
+    const hashedPassword = await bcryptjs.hash(values.newPassword, 10);
+
+    values.password = hashedPassword;
+    values.newPassword = undefined;
+  } catch (error) {
+    console.error("Error changing password:", error);
+    return { error: "An error occurred while changing password." };
   }
+}
 
   // تحديث بيانات المستخدم في قاعدة البيانات
   try {
