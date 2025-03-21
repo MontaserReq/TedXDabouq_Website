@@ -9,7 +9,6 @@ const compat = new FlatCompat({
   baseDirectory: __dirname,
 });
 
-// Disable ESLint by exporting an empty configuration
 const eslintConfig = [];
 
 export default eslintConfig;
