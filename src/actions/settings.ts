@@ -52,9 +52,9 @@ export const settings = async (values: z.infer<typeof SettingsSchema>) => {
 
   // التحقق من تغيير كلمة المرور
   if (values.newPassword && values.password && dbUser.password) {
-    if(typeof values.password !== 'string'){
-        console.error("values.password is not a string");
-        return {error: "Invalid password format."};
+    if(typeof values.newPassword !== 'string'){
+        console.error("values.newPassword is not a string");
+        return {error: "Invalid new password format."};
     }
   try {
     const passwordsMatch = await bcryptjs.compare(
