@@ -41,15 +41,14 @@ export const settings = async (values: z.infer<typeof SettingsSchema>) => {
     return { success: "Email changed, please verify your email" };
   }
 
-  if (values.newPassword && values.password && typeof dbUser.password === "string") {
+  if (values.newPassword && values.password && typeof dbUser.password === "string" && dbUser.password.length > 0) {
     const passwordsMatch = await bcryptjs.compare(values.password, dbUser.password);
-    
+  
     if (!passwordsMatch) {
       return { error: "Invalid password" };
     }
   
     const hashedPassword = await bcryptjs.hash(values.newPassword, 10);
-  
     values.password = hashedPassword;
     values.newPassword = undefined;
   }
