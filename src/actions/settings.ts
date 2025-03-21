@@ -21,6 +21,7 @@ export const settings = async (values: z.infer<typeof SettingsSchema>) => {
     return { error: "Unauthorized" };
   }
 
+  // إذا كان المستخدم يستخدم OAuth، قم بتعيين قيم معينة إلى undefined لتجنب التحديث.
   if (user.isOAuth) {
     values.email = undefined;
     values.password = undefined;
@@ -28,38 +29,61 @@ export const settings = async (values: z.infer<typeof SettingsSchema>) => {
     values.isTwoFactorEnabled = undefined;
   }
 
-  if (values.email && values.email !== user.email) {
-    const ExistingUser = await getUserByEmail(values.email);
+  // التحقق من تغيير البريد الإلكتروني
+  if (values.email && typeof values.email === 'string' && values.email !== user.email) {
+    try {
+      const existingUser = await getUserByEmail(values.email);
 
-    if (ExistingUser && ExistingUser.id !== user.id) {
-      return { error: "Email already in use" };
+      if (existingUser && existingUser.id !== user.id) {
+        return { error: "Email already in use" };
+      }
+
+      const verificationToken = await generateVerficationToken(values.email);
+      await sendVereficationEmail(verificationToken.email, verificationToken.token);
+
+      return { success: "Email changed, please verify your email" };
+    } catch (error) {
+      console.error("Error changing email:", error);
+      return { error: "An error occurred while changing email." };
     }
-
-    const verficationToken = await generateVerficationToken(values.email);
-    await sendVereficationEmail(verficationToken.email, verficationToken.token);
-
-    return { success: "Email changed, please verify your email" };
+  } else if (values.email && typeof values.email !== 'string'){
+      return {error : "Email must be a string."};
   }
 
-  if (values.newPassword && values.password && typeof dbUser.password === "string" && dbUser.password.length > 0) {
-    const passwordsMatch = await bcryptjs.compare(values.password, dbUser.password);
-  
-    if (!passwordsMatch) {
-      return { error: "Invalid password" };
+  // التحقق من تغيير كلمة المرور
+  if (values.newPassword && values.password && dbUser.password) {
+    try {
+      const passwordsMatch = await bcryptjs.compare(
+        values.password,
+        dbUser.password
+      );
+
+      if (!passwordsMatch) {
+        return { error: "Invalid password" };
+      }
+
+      const hashedPassword = await bcryptjs.hash(values.newPassword, 10);
+
+      values.password = hashedPassword;
+      values.newPassword = undefined;
+    } catch (error) {
+      console.error("Error changing password:", error);
+      return { error: "An error occurred while changing password." };
     }
-  
-    const hashedPassword = await bcryptjs.hash(values.newPassword, 10);
-    values.password = hashedPassword;
-    values.newPassword = undefined;
   }
-  
 
-  await db.user.update({
-    where: { id: dbUser.id },
-    data: {
-      ...values,
-    },
-  });
+  // تحديث بيانات المستخدم في قاعدة البيانات
+  try {
+    await db.user.update({
+      where: { id: dbUser.id },
+      data: {
+        ...values,
+      },
+    });
 
-  return { success: "Settings Updated!" };
+    return { success: "Settings Updated!" };
+  } catch (error) {
+    console.error("Error updating settings:", error);
+    return { error: "An error occurred while updating settings." };
+  }
 };
