@@ -21,7 +21,6 @@ export const settings = async (values: z.infer<typeof SettingsSchema>) => {
     return { error: "Unauthorized" };
   }
 
-  // إذا كان المستخدم يستخدم OAuth، قم بتعيين قيم معينة إلى undefined لتجنب التحديث.
   if (user.isOAuth) {
     values.email = undefined;
     values.password = undefined;
@@ -29,7 +28,6 @@ export const settings = async (values: z.infer<typeof SettingsSchema>) => {
     values.isTwoFactorEnabled = undefined;
   }
 
-  // التحقق من تغيير البريد الإلكتروني
   if (values.email && typeof values.email === 'string' && values.email !== user.email) {
     try {
       const existingUser = await getUserByEmail(values.email);
@@ -50,33 +48,35 @@ export const settings = async (values: z.infer<typeof SettingsSchema>) => {
       return {error : "Email must be a string."};
   }
 
-  // التحقق من تغيير كلمة المرور
   if (values.newPassword && values.password && dbUser.password) {
-    if(typeof values.newPassword !== 'string'){
-        console.error("values.newPassword is not a string");
-        return {error: "Invalid new password format."};
+    if (typeof values.password !== 'string') {
+      console.error("values.password is not a string");
+      return { error: "Invalid password format." };
     }
-  try {
-    const passwordsMatch = await bcryptjs.compare(
-      values.password,
-      dbUser.password
-    );
-
-    if (!passwordsMatch) {
-      return { error: "Invalid password" };
+    if (typeof values.newPassword !== 'string') {
+      console.error("values.newPassword is not a string");
+      return { error: "Invalid new password format." };
     }
+    try {
+      const passwordsMatch = await bcryptjs.compare(
+        values.password,
+        dbUser.password
+      );
 
-    const hashedPassword = await bcryptjs.hash(values.newPassword, 10);
+      if (!passwordsMatch) {
+        return { error: "Invalid password" };
+      }
 
-    values.password = hashedPassword;
-    values.newPassword = undefined;
-  } catch (error) {
-    console.error("Error changing password:", error);
-    return { error: "An error occurred while changing password." };
+      const hashedPassword = await bcryptjs.hash(values.newPassword, 10);
+
+      values.password = hashedPassword;
+      values.newPassword = undefined;
+    } catch (error) {
+      console.error("Error changing password:", error);
+      return { error: "An error occurred while changing password." };
+    }
   }
-}
 
-  // تحديث بيانات المستخدم في قاعدة البيانات
   try {
     await db.user.update({
       where: { id: dbUser.id },
